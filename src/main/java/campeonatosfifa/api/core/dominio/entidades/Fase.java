@@ -5,35 +5,28 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "ciudad")
-public class Ciudad {
+@Table(name = "fase")
+public class Fase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuenciador_ciudad")
-    @SequenceGenerator(name = "secuenciador_ciudad", sequenceName = "secuenciador_ciudad", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_fase")
+    @SequenceGenerator(name = "secuencia_fase", sequenceName = "secuencia_fase", allocationSize = 1)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "ciudad", length = 100)
+    @Column(name = "fase", unique = true, nullable = false)
     private String nombre;
 
-    @ManyToOne
-    @JoinColumn(name = "idpais", referencedColumnName = "id")
-    private Seleccion pais;
-
-    public Ciudad(int id, String nombre, Seleccion pais) {
-        this.id = id;
-        this.nombre = nombre;
-        this.pais = pais;
+    public Fase() {
     }
 
-    public Ciudad() {
+    public Fase(int id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     public int getId() {
@@ -51,13 +44,5 @@ public class Ciudad {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public Seleccion getPais() {
-        return pais;
-    }
-
-    public void setPais(Seleccion pais) {
-        this.pais = pais;
-    }
-
 }
+
