@@ -4,7 +4,7 @@ package campeonatosfifa.api.core.dominio.entidades;
 import jakarta.persistence.*;
 
 @Entity
-//@IdClass(GrupoPaisId.class)
+@IdClass(GrupoPaisId.class)
 @Table(name = "grupopais")
 public class GrupoPais {
 
