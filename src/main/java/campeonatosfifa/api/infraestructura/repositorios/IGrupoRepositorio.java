@@ -11,7 +11,7 @@ import campeonatosfifa.api.core.dominio.entidades.Grupo;
 @Repository
 public interface IGrupoRepositorio extends JpaRepository<Grupo, Integer> {
 
-    @Query("SELECT g FROM Grupo g WHERE s.nombre LIKE '%' || :dato || '%' AND g.campeonato.id=:idCampeonato") // JPQL
+    @Query("SELECT g FROM Grupo g WHERE g.nombre LIKE '%' || :dato || '%' AND g.campeonato.id=:idCampeonato") // JPQL
     public List<Grupo> buscar(int idCampeonato, String dato);
 
 }
