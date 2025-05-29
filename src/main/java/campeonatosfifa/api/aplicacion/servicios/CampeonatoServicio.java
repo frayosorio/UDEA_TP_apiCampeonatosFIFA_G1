@@ -4,43 +4,42 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import campeonatosfifa.api.core.dominio.entidades.Seleccion;
-import campeonatosfifa.api.core.interfaces.servicios.ISeleccionServicio;
-import campeonatosfifa.api.infraestructura.repositorios.ISeleccionRepositorio;
+import campeonatosfifa.api.core.dominio.entidades.Campeonato;
+import campeonatosfifa.api.core.interfaces.servicios.ICampeonatoServicio;
+import campeonatosfifa.api.infraestructura.repositorios.ICampeonatoRepositorio;
 
 @Service
-public class SeleccionServicio implements ISeleccionServicio {
+public class CampeonatoServicio implements ICampeonatoServicio {
 
-    private ISeleccionRepositorio repositorio;
+    private ICampeonatoRepositorio repositorio;
 
-    public SeleccionServicio(ISeleccionRepositorio repositorio) {
+    public CampeonatoServicio(ICampeonatoRepositorio repositorio) {
         this.repositorio = repositorio;
     }
 
     @Override
-    public List<Seleccion> listar() {
+    public List<Campeonato> listar() {
         return repositorio.findAll();
     }
 
     @Override
-    public Seleccion obtener(int id) {
-        // return repositorio.findById(id).isEmpty() ? null : repositorio.findById(id).get();
-        return repositorio.findById(id).orElse(null);
+    public Campeonato obtener(int id) {
+       return repositorio.findById(id).orElse(null);
     }
 
     @Override
-    public List<Seleccion> buscar(String dato) {
+    public List<Campeonato> buscar(String dato) {
         return repositorio.buscar(dato);
     }
 
     @Override
-    public Seleccion agregar(Seleccion seleccion) {
+    public Campeonato agregar(Campeonato Campeonato) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'agregar'");
     }
 
     @Override
-    public Seleccion modificar(Seleccion seleccion) {
+    public Campeonato modificar(Campeonato Campeonato) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'modificar'");
     }

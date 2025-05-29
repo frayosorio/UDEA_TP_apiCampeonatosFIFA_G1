@@ -2,6 +2,8 @@ package campeonatosfifa.api.presentacion.controladores;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +24,16 @@ public class SeleccionControlador {
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public List<Seleccion> listar() {
         return servicio.listar();
+    }
+
+    @GetMapping("/obtener/{id}")
+    public Seleccion obtener(@PathVariable int id) {
+        return servicio.obtener(id);
+    }
+
+    @GetMapping("/buscar/{dato}")
+    public List<Seleccion> buscar(@PathVariable String dato) {
+        return servicio.buscar(dato);
     }
 
 }
