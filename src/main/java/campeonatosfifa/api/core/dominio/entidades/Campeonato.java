@@ -15,8 +15,8 @@ import jakarta.persistence.Table;
 public class Campeonato {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuenciador_campeonato")
-    @SequenceGenerator(name = "secuenciador_campeonato", sequenceName = "secuenciador_campeonato", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "campeonato_id_seq")
+    @SequenceGenerator(name = "campeonato_id_seq", sequenceName = "campeonato_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 

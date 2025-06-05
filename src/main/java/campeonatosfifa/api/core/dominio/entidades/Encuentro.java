@@ -10,8 +10,8 @@ import java.util.Date;
 public class Encuentro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_encuentro")
-    @SequenceGenerator(name = "secuencia_encuentro", sequenceName = "secuencia_encuentro", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "encuentro_id_seq")
+    @SequenceGenerator(name = "encuentro_id_seq", sequenceName = "encuentro_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 

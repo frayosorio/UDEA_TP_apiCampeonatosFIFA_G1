@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Estadio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_estadio")
-    @SequenceGenerator(name = "secuencia_estadio", sequenceName = "secuencia_estadio", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "estadio_id_seq")
+    @SequenceGenerator(name = "estadio_id_seq", sequenceName = "estadio_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 

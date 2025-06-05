@@ -33,21 +33,28 @@ public class CampeonatoServicio implements ICampeonatoServicio {
     }
 
     @Override
-    public Campeonato agregar(Campeonato Campeonato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'agregar'");
+    public Campeonato agregar(Campeonato campeonato) {
+        campeonato.setId(0);
+        return repositorio.save(campeonato);
     }
 
     @Override
-    public Campeonato modificar(Campeonato Campeonato) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modificar'");
+    public Campeonato modificar(Campeonato campeonato) {
+        if (repositorio.findById(campeonato.getId()).isEmpty())
+            return null;
+        return repositorio.save(campeonato);
     }
 
     @Override
     public boolean eliminar(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            if (repositorio.findById(id).isEmpty())
+                return false;
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

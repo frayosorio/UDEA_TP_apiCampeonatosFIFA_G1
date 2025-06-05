@@ -24,7 +24,8 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public Seleccion obtener(int id) {
-        // return repositorio.findById(id).isEmpty() ? null : repositorio.findById(id).get();
+        // return repositorio.findById(id).isEmpty() ? null :
+        // repositorio.findById(id).get();
         return repositorio.findById(id).orElse(null);
     }
 
@@ -35,20 +36,27 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public Seleccion agregar(Seleccion seleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'agregar'");
+        seleccion.setId(0);
+        return repositorio.save(seleccion);
     }
 
     @Override
     public Seleccion modificar(Seleccion seleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modificar'");
+        if (repositorio.findById(seleccion.getId()).isEmpty())
+            return null;
+        return repositorio.save(seleccion);
     }
 
     @Override
     public boolean eliminar(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            if (repositorio.findById(id).isEmpty())
+                return false;
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

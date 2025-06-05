@@ -13,8 +13,8 @@ import jakarta.persistence.Table;
 public class Fase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_fase")
-    @SequenceGenerator(name = "secuencia_fase", sequenceName = "secuencia_fase", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "fase_id_seq")
+    @SequenceGenerator(name = "fase_id_seq", sequenceName = "fase_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 

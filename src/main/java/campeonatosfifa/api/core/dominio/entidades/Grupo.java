@@ -7,8 +7,8 @@ import jakarta.persistence.*;
 public class Grupo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_grupo")
-    @SequenceGenerator(name = "secuencia_campeonato", sequenceName = "secuencia_campeonato", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "grupo_id_seq")
+    @SequenceGenerator(name = "grupo_id_seq", sequenceName = "grupo_id_seq", allocationSize = 1)
     @Column(name = "id")
     private int id;
 
