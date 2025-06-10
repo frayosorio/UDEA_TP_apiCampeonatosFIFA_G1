@@ -14,4 +14,7 @@ public interface IGrupoRepositorio extends JpaRepository<Grupo, Integer> {
     @Query("SELECT g FROM Grupo g WHERE g.nombre LIKE '%' || :dato || '%' AND g.campeonato.id=:idCampeonato") // JPQL
     public List<Grupo> buscar(int idCampeonato, String dato);
 
+    @Query("SELECT g FROM Grupo g WHERE g.campeonato.id=:idCampeonato") // JPQL
+    public List<Grupo> listarCampeonato(int idCampeonato);
+
 }
